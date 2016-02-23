@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference android:key="touch"
-        android:title="Enable Touch"></CheckBoxPreference>
-    <EditTextPreference android:key="numberOfCircles"
-        android:title="Number of Circles"></EditTextPreference>
+    <PreferenceCategory android:title="General preference">
+        <EditTextPreference android:key="fontSize" android:title="Font size"></EditTextPreference>
+        <EditTextPreference android:key="backgrSpeed" android:title="Speed of falling"></EditTextPreference>
+    </PreferenceCategory>
 </PreferenceScreen>

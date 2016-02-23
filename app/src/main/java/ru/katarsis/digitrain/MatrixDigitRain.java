@@ -42,8 +42,8 @@ public class MatrixDigitRain extends WallpaperService {
         int columnCount =0;
         int latestIndexY[];
         int FONT_SIZE =10;
+        int SPEED = 40;
         String wordMatrix[] ;
-        int ttlMatrix[][];
         Random random = new Random();
         Bitmap map;
 
@@ -53,8 +53,9 @@ public class MatrixDigitRain extends WallpaperService {
         public MyWallpaperEngine() {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MatrixDigitRain.this);
 
-            touchEnabled = prefs.getBoolean("touch", false);
-
+           // touchEnabled = prefs.getBoolean("touch", false);
+            FONT_SIZE = Integer.valueOf(prefs.getString("fontSize", "10"));
+            SPEED = Integer.valueOf(prefs.getString("backgrSpeed", "20"));
             handler.post(drawRunner);
 
             yellowPaint.setTextSize(FONT_SIZE);
@@ -66,7 +67,7 @@ public class MatrixDigitRain extends WallpaperService {
             normalPaint.setColor(Color.rgb(0, 200, 0));
 
             whitePaint.setTextSize(FONT_SIZE);
-            whitePaint.setStyle(Paint.Style.STROKE);
+           // whitePaint.setStyle(Paint.Style.STROKE);
             whitePaint.setColor(Color.rgb(255,255,255));
         }
 
@@ -148,7 +149,7 @@ public class MatrixDigitRain extends WallpaperService {
     private void drawText(Canvas canvas) {
         try {
             Canvas bufferCanvas = new Canvas(map);
-            bufferCanvas.drawColor(Color.argb(20, 0, 0, 0));
+            bufferCanvas.drawColor(Color.argb(SPEED, 0, 0, 0));
             for (int i=0;i<columnCount;i++) {
                 int index = TEXT.length();
                 String tmpStr = String.valueOf(TEXT.charAt(random.nextInt(index)));
@@ -164,6 +165,7 @@ public class MatrixDigitRain extends WallpaperService {
                     latestIndexY[i]=0;
                 }
             }
+
 
             canvas.drawBitmap(map,0,0,null);
 

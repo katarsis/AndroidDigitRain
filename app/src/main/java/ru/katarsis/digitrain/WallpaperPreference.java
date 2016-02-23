@@ -14,13 +14,13 @@ public class WallpaperPreference extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.prefs);
-
+/*
         // add a validator to the "numberofCircles" preference so that it only
         // accepts numbers
-        Preference circlePreference = getPreferenceScreen().findPreference("numberOfCircles");
+        Preference circlePreference = getPreferenceScreen().findPreference("fontSize");
 
         // add the validator
-        circlePreference.setOnPreferenceChangeListener(numberCheckListener);
+        circlePreference.setOnPreferenceChangeListener(numberCheckListener);*/
     }
 
 
